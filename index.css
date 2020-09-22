@@ -1,0 +1,32 @@
+.font-logo{
+    font-family: "Satisfy";
+}
+.img-banner{
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    width: 100%;
+}
+.img-carrito{
+    width: 50px;
+    height: 50px;
+    justify-content: right;
+}
+.items-nav{
+    padding-top: 10px;
+}
+.footer{
+    text-align: center;
+}
+.title-product{
+    text-align: center;
+
+}
+.card-style{
+    width: 300px;
+    height: 300px;
+
+}
+.img-card{
+    width: 80px;
+    height: 80px;
+}
