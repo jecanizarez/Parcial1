@@ -10,16 +10,17 @@
     <link rel="stylesheet" href="index.css">
     <!--Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet'>
-    <title>Personal Web Page</title>
+    <title>Restaurante</title>
 </head>
 <body>
+  <!--Navbar y Banner-->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand font-logo" href="#banner">Restaurante & Lounge</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <input type="image" src="./Images/carrito.png" class="img-carrito ml-auto">
+        <input type="image" src="./Images/carrito.png" class="img-carrito ml-auto" onclick="mostrarOrden()">
         <p class="" id="labelItems">Items</p>
       </nav>
       <div id="banner">
@@ -28,6 +29,7 @@
     </header>
     <main>
         <div>
+          <!--Barra Navegacion-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <button class="navbar-toggler" type="but  ton" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -35,25 +37,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link">Burguers <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" onclick="mostrarContenido(0)">Burguers <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link">Tacos</a>
+                      <a class="nav-link" onclick="mostrarContenido(1)">Tacos</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link">Salads</a>
+                      <a class="nav-link"onclick="mostrarContenido(2)">Salads</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link">Desserts</a>
+                      <a class="nav-link"onclick="mostrarContenido(3)">Desserts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Drinks & Sides</a> 
+                        <a class="nav-link"onclick="mostrarContenido(4)">Drinks & Sides</a> 
                     </li>
                   </ul>
                 </div>
             </nav>
         </div>
         <div class="container-fluid">
+          <!--Title-->
             <div class="row">
                 <div class="col">
                     <hr>
@@ -61,20 +64,74 @@
                     <hr>
                 </div>
             </div>
+            <!--Cards-->
             <div class="row">
                 <div class="col">
-                    <div id="card-group" class= "card-group">
-
+                    <div class = "container-fluid">
+                      <div id="card-group-Burguers" class="row">
+                      </div>
+                      <div id="card-group-Tacos" class="row">
+                      </div>
+                      <div id="card-group-Salads" class="row">
+                      </div>
+                      <div id="card-group-Desserts" class="row">
+                      </div>
+                      <div id="card-group-Drinks and Sides" class="row">
+                      </div>
                     </div>
                 </div>
             </div>
+            <!--Order Table-->
+            <div class="row">
+              <div class="col">
+                <div id="divCarrito" class="container-fluid">
+                  <table class="table table-striped">
+                    <thead>
+                      <th>Item</th>
+                      <th>Qty</th>
+                      <th>Description</th>
+                      <th>Unit Price</th>
+                      <th>Amount</th>
+                    </thead>  
+                    <tbody id="tablebody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!--Total Order and Buttons-->
+            <div id ="total" class="row">
+              <div class="col">
+                <p id="totalp"class="total bold"></p>
+              </div>
+              <button class="btn btn-danger" data-toggle="modal" data-target="#cancelModal">Cancel</button>
+              <button class="btn boton-confirm-color" onclick="confirmOrder()">Confirm Order</button>
+            </div>
         </div>
-        
+        <!-- Modal -->
+        <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="cancelModalLabel">Cancel the order</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Are you sure about cancelling the order?</p>   
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn boton-confirm-color" data-dismiss="modal" onclick="mostrarContenido(0)">No, I want to continue adding products</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="cancelOrder()">Yes, I want to cancel the order</button>
+              </div>
+            </div>
+          </div>  
+        </div>
     </main>
+    <!--Footer-->
     <footer class="footer">
         <p>Conctac us: +57 3172834265- info@restaurante.com-@restaurant</p>
     </footer>
-
     <script src= "script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
